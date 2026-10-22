@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-bs-theme', savedTheme);
+        })();
+    </script>
+
+    <meta name="description" content="Conheça as comidas e bebidas da Cafeteria Grão Dourado.">
+
+    <title>Produtos | Grão Dourado</title>
+
+    <link rel="icon" type="image/png" href="../static/img/ChatGPT Image 24 de set. de 2026, 12_18_56.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- SEU CSS ORIGINAL -->
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg" aria-label="Menu principal">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                    <img src="../static/img/ChatGPT Image 24 de set. de 2026, 12_18_56.png" alt="Logotipo Grão Dourado" class="site-logo">
+                    <span>Grão <span>Dourado</span></span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="pedidos.html">Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom active" href="produtos.html" aria-current="page">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="localizacao.html">Localização</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="login.html">Entrar</a>
+                        </li>
+                    </ul>
+
+                    <button id="themeToggle" class="theme-toggle ms-lg-2" type="button" aria-label="Alternar tema" title="Ativar tema escuro">
+                        🌙
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+
+            <div class="text-center mb-5">
+                <p class="eyebrow">cafés, comidas e doces</p>
+                <h1>Nossos <span>Produtos.</span></h1>
+                <p>Conheça nossas bebidas, comidas e sobremesas preparadas com carinho.</p>
+            </div>
+
+            <!-- CATEGORIAS (ABAS) -->
+            <ul class="nav nav-pills justify-content-center mb-5" id="produtosTab" role="tablist">
+                <li class="nav-item mx-1" role="presentation">
+                    <button class="nav-link active fw-bold" id="todos-tab" data-bs-toggle="pill" data-bs-target="#todos" type="button" role="tab" aria-controls="todos" aria-selected="true">
+                        Tudo
+                    </button>
+                </li>
+                <li class="nav-item mx-1" role="presentation">
+                    <button class="nav-link fw-bold" id="bebidas-tab" data-bs-toggle="pill" data-bs-target="#bebidas" type="button" role="tab" aria-controls="bebidas" aria-selected="false">
+                        ☕ Bebidas
+                    </button>
+                </li>
+                <li class="nav-item mx-1" role="presentation">
+                    <button class="nav-link fw-bold" id="comidas-tab" data-bs-toggle="pill" data-bs-target="#comidas" type="button" role="tab" aria-controls="comidas" aria-selected="false">
+                        🥐 Comidas
+                    </button>
+                </li>
+                <li class="nav-item mx-1" role="presentation">
+                    <button class="nav-link fw-bold" id="bebidas-geladas-tab" data-bs-toggle="pill" data-bs-target="#bebidas-geladas" type="button" role="tab" aria-controls="bebidas-geladas" aria-selected="false">
+                        💧 Bebidas Geladas
+                    </button>
+                </li>
+                <li class="nav-item mx-1" role="presentation">
+                    <button class="nav-link fw-bold" id="opcoes-saudaveis-tab" data-bs-toggle="pill" data-bs-target="#opcoes-saudaveis" type="button" role="tab" aria-controls="opcoes-saudaveis" aria-selected="false">
+                        🌿 Opções Saudáveis
+                    </button>
+                </li>
+                <li class="nav-item mx-1" role="presentation">
+                    <button class="nav-link fw-bold" id="lanches-salgados-tab" data-bs-toggle="pill" data-bs-target="#lanches-salgados" type="button" role="tab" aria-controls="lanches-salgados" aria-selected="false">
+                        🍔 Lanches e Salgados
+                    </button>
+                </li>
+                <li class="nav-item mx-1" role="presentation">
+                    <button class="nav-link fw-bold" id="doces-tab" data-bs-toggle="pill" data-bs-target="#doces" type="button" role="tab" aria-controls="doces" aria-selected="false">
+                        🍰 Doces
+                    </button>
+                </li>
+            </ul>
+
+            <!-- CONTEÚDO DAS ABAS -->
+            <div class="tab-content" id="produtosTabContent">
+
+                <!-- 1. ABA: TODOS -->
+                <div class="tab-pane fade show active" id="todos" role="tabpanel" aria-labelledby="todos-tab">
+                    <div class="row g-4">
+                        <!-- BEBIDAS -->
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=85" alt="Espresso da Casa">
+                                <div class="product-content">
+                                    <h2>Espresso da Casa</h2>
+                                    <p>Café intenso, encorpado e preparado com grãos selecionados.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 7,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=900&q=85" alt="Latte Sereno">
+                                <div class="product-content">
+                                    <h2>Latte Sereno</h2>
+                                    <p>Espresso com leite cremoso vaporizado e espuma suave.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 12,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=900&q=85" alt="Cappuccino Italiano">
+                                <div class="product-content">
+                                    <h2>Cappuccino Italiano</h2>
+                                    <p>Espresso, leite vaporizado, espuma densa e toque de cacau.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 13,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- COMIDAS -->
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=85" alt="Croissant de Manteiga">
+                                <div class="product-content">
+                                    <h2>Croissant de Manteiga</h2>
+                                    <p>Massa folhada artesanal, crocante por fora e macia por dentro.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 10,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=85" alt="Pão Artesanal na Chapa">
+                                <div class="product-content">
+                                    <h2>Pão Artesanal na Chapa</h2>
+                                    <p>Pão de fermentação natural tostado na manteiga artesanal.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 8,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="../static/img/alho - Copia.jpg" alt="Quiche Folhada de Alho-Poró">
+                                <div class="product-content">
+                                    <h2>Quiche de Alho-Poró</h2>
+                                    <p>Massa crocante folhada com recheio cremoso de queijo e alho-poró.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 15,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- BEBIDAS GELADAS -->
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=900&q=85" alt="Frappuccino de Chocolate">
+                                <div class="product-content">
+                                    <h2>Frappuccino de Chocolate</h2>
+                                    <p>Bebida gelada de café com chocolate, leite cremoso e chantilly.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 16,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=85" alt="Iced Latte de Baunilha">
+                                <div class="product-content">
+                                    <h2>Iced Latte Baunilha</h2>
+                                    <p>Café espresso gelado misturado com leite e xarope de baunilha.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 14,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=900&q=85" alt="Chá Gelado de Limão e Hortelã">
+                                <div class="product-content">
+                                    <h2>Chá Gelado de Limão</h2>
+                                    <p>Chá preto refrescante batido com suco natural de limão e hortelã.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 11,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- OPÇÕES SAUDÁVEIS -->
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=85" alt="Iogurte com Frutas">
+                                <div class="product-content">
+                                    <h2>Iogurte com Frutas</h2>
+                                    <p>Iogurte cremoso acompanhado de frutas frescas e granola crocante.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 14,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="../static/img/sanduiche.jpg" alt="Pão Recheado">
+                                <div class="product-content">
+                                    <h2>Pão Recheado</h2>
+                                    <p>Pão integral com queijo e presunto.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 18,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="../static/img/maçatorta.jpg" alt="Torta Integral de Maçã">
+                                <div class="product-content">
+                                    <h2>Torta Integral de Maçã</h2>
+                                    <p>Massa de aveia recheada com maçãs assadas, canela e sem açúcar adicionado.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 13,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- LANCHES E SALGADOS -->
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="../static/img/b7f723e637cb0b652fec4134a72ada0e.jpg" alt="Empada de Frango">
+                                <div class="product-content">
+                                    <h2>Empada de Frango</h2>
+                                    <p>Massa podre tradicional derretendo na boca, recheada com frango desfiado.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 9,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="../static/img/coxinha.jpg" alt="Coxinha de Frango com Catupiry">
+                                <div class="product-content">
+                                    <h2>Coxinha de Frango</h2>
+                                    <p>Salgado crocante recheado com frango temperado e catupiry cremoso.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 8,50</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="../static/img/pao queijo.jpg" alt="Pão de Queijo Tradicional">
+                                <div class="product-content">
+                                    <h2>Pão de Queijo</h2>
+                                    <p>Tradicional pão de queijo mineiro, crocante por fora e muito macio por dentro.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 6,00</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- DOCES -->
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85" alt="Bolo Fudge de Chocolate">
+                                <div class="product-content">
+                                    <h2>Bolo Fudge de Chocolate</h2>
+                                    <p>Bolo de chocolate com cobertura cremosa de ganache artesanal.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 14,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=900&q=85" alt="Brigadeiros de Chocolate">
+                                <div class="product-content">
+                                    <h2>Brigadeiros de Chocolate</h2>
+                                    <p>Brigadeiros cremosos de chocolate, cobertos com granulado premium.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 18,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=900&q=85" alt="Cheesecake de Frutas Vermelhas">
+                                <div class="product-content">
+                                    <h2>Cheesecake de Frutas</h2>
+                                    <p>Torta cremosa de cream cheese com calda artesanal de frutas vermelhas.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 16,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 2. ABA: BEBIDAS -->
+                <div class="tab-pane fade" id="bebidas" role="tabpanel" aria-labelledby="bebidas-tab">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=85" alt="Espresso da Casa">
+                                <div class="product-content">
+                                    <h2>Espresso da Casa</h2>
+                                    <p>Café intenso, encorpado e preparado com grãos selecionados.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 7,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=900&q=85" alt="Latte Sereno">
+                                <div class="product-content">
+                                    <h2>Latte Sereno</h2>
+                                    <p>Espresso com leite cremoso vaporizado e espuma suave.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 12,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=900&q=85" alt="Cappuccino Italiano">
+                                <div class="product-content">
+                                    <h2>Cappuccino Italiano</h2>
+                                    <p>Espresso, leite vaporizado, espuma densa e toque de cacau.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 13,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. ABA: COMIDAS -->
+                <div class="tab-pane fade" id="comidas" role="tabpanel" aria-labelledby="comidas-tab">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=85" alt="Croissant de Manteiga">
+                                <div class="product-content">
+                                    <h2>Croissant de Manteiga</h2>
+                                    <p>Massa folhada artesanal, crocante por fora e macia por dentro.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 10,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=85" alt="Pão Artesanal na Chapa">
+                                <div class="product-content">
+                                    <h2>Pão Artesanal na Chapa</h2>
+                                    <p>Pão de fermentação natural tostado na manteiga artesanal.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 8,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="../static/img/alho - Copia.jpg" alt="Quiche Folhada de Alho-Poró">
+                                <div class="product-content">
+                                    <h2>Quiche de Alho-Poró</h2>
+                                    <p>Massa crocante folhada com recheio cremoso de queijo e alho-poró.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 15,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. ABA: BEBIDAS GELADAS -->
+                <div class="tab-pane fade" id="bebidas-geladas" role="tabpanel" aria-labelledby="bebidas-geladas-tab">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=900&q=85" alt="Frappuccino de Chocolate">
+                                <div class="product-content">
+                                    <h2>Frappuccino de Chocolate</h2>
+                                    <p>Bebida gelada de café com chocolate, leite cremoso e chantilly.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 16,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=85" alt="Iced Latte de Baunilha">
+                                <div class="product-content">
+                                    <h2>Iced Latte Baunilha</h2>
+                                    <p>Café espresso gelado misturado com leite e xarope de baunilha.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 14,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=900&q=85" alt="Chá Gelado de Limão e Hortelã">
+                                <div class="product-content">
+                                    <h2>Chá Gelado de Limão</h2>
+                                    <p>Chá preto refrescante batido com suco natural de limão e hortelã.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 11,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. ABA: OPÇÕES SAUDÁVEIS -->
+                <div class="tab-pane fade" id="opcoes-saudaveis" role="tabpanel" aria-labelledby="opcoes-saudaveis-tab">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=85" alt="Iogurte com Frutas">
+                                <div class="product-content">
+                                    <h2>Iogurte com Frutas</h2>
+                                    <p>Iogurte cremoso acompanhado de frutas frescas e granola crocante.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 14,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="../static/img/sanduiche.jpg" alt="Pão Recheado">
+                                <div class="product-content">
+                                    <h2>Pão Recheado</h2>
+                                    <p>Pão integral com queijo e presunto.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 18,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="../static/img/maçatorta.jpg" alt="Torta Integral de Maçã">
+                                <div class="product-content">
+                                    <h2>Torta Integral de Maçã</h2>
+                                    <p>Massa de aveia recheada com maçãs assadas, canela e sem açúcar adicionado.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 13,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. ABA: LANCHES E SALGADOS -->
+                <div class="tab-pane fade" id="lanches-salgados" role="tabpanel" aria-labelledby="lanches-salgados-tab">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="../static/img/b7f723e637cb0b652fec4134a72ada0e.jpg" alt="Empada de Frango">
+                                <div class="product-content">
+                                    <h2>Empada de Frango</h2>
+                                    <p>Massa podre tradicional derretendo na boca, recheada com frango desfiado.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 9,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="../static/img/coxinha.jpg" alt="Coxinha de Frango com Catupiry">
+                                <div class="product-content">
+                                    <h2>Coxinha de Frango</h2>
+                                    <p>Salgado crocante recheado com frango temperado e catupiry cremoso.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 8,50</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="../static/img/pao queijo.jpg" alt="Pão de Queijo Tradicional">
+                                <div class="product-content">
+                                    <h2>Pão de Queijo</h2>
+                                    <p>Tradicional pão de queijo mineiro, crocante por fora e muito macio por dentro.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 6,00</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. ABA: DOCES -->
+                <div class="tab-pane fade" id="doces" role="tabpanel" aria-labelledby="doces-tab">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85" alt="Bolo Fudge de Chocolate">
+                                <div class="product-content">
+                                    <h2>Bolo Fudge de Chocolate</h2>
+                                    <p>Bolo de chocolate com cobertura cremosa de ganache artesanal.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 14,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=900&q=85" alt="Brigadeiros de Chocolate">
+                                <div class="product-content">
+                                    <h2>Brigadeiros de Chocolate</h2>
+                                    <p>Brigadeiros cremosos de chocolate, cobertos com granulado premium.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 18,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=900&q=85" alt="Cheesecake de Frutas Vermelhas">
+                                <div class="product-content">
+                                    <h2>Cheesecake de Frutas</h2>
+                                    <p>Torta cremosa de cream cheese com calda artesanal de frutas vermelhas.</p>
+                                    <div class="product-footer">
+                                        <strong>R$ 16,90</strong>
+                                        <a href="pedidos.html" class="btn btn-sm btn-order">Pedir →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer py-4 mt-auto border-top">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 Cafeteria Grão Dourado. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle com Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script de alternância do tema escuro/claro -->
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggle');
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            themeToggleBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            themeToggleBtn.setAttribute('title', newTheme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro');
+        }
+
+        if (themeToggleBtn) {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            themeToggleBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            themeToggleBtn.addEventListener('click', toggleTheme);
+        }
+    </script>
+</body>
+
+</html>

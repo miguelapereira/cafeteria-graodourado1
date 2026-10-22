@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-bs-theme', savedTheme);
+        })();
+    </script>
+
+    <meta name="description"
+        content="Cafeteria Grão Dourado — cafés especiais, história, ambiente acolhedor e momentos tranquilos.">
+
+    <title>Cafeteria Grão Dourado</title>
+
+    <link rel="icon"
+        type="image/png"
+        href="/static/img/ChatGPT Image 24 de set. de 2026, 12_18_56.png">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <style>
+        /* Seção do ambiente */
+
+        .environment-section {
+            padding: 6rem 0;
+            background-color: var(--color-card-bg);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .environment-section .section-title {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .environment-section h2 span,
+        .environment-content h3 span {
+            color: var(--color-accent);
+        }
+
+        .environment-content h3 {
+            font-family: var(--font-title);
+            color: var(--color-text);
+            font-size: 2.1rem;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+
+        .environment-content > p:not(.eyebrow) {
+            color: var(--color-text);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        .environment-gallery {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            grid-template-rows: 220px 220px;
+            gap: 1rem;
+        }
+
+        .environment-photo {
+            margin: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-border);
+            background-color: var(--color-card-bg);
+        }
+
+        .environment-photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .environment-photo:hover img {
+            transform: scale(1.05);
+        }
+
+        .environment-photo-large {
+            grid-row: 1 / 3;
+        }
+
+        .environment-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        .environment-feature-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: rgba(200, 149, 71, 0.15);
+            font-size: 1.25rem;
+        }
+
+        .environment-feature strong {
+            display: block;
+            color: var(--color-text);
+            margin-bottom: 0.2rem;
+        }
+
+        .environment-feature p {
+            color: var(--color-text);
+            opacity: 0.7;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 991px) {
+            .environment-content {
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .environment-section {
+                padding: 4rem 0;
+            }
+
+            .environment-gallery {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 180px 140px;
+                gap: 0.75rem;
+            }
+
+            .environment-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .environment-photo {
+                border-radius: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg" aria-label="Menu principal">
+            <div class="container">
+
+                <a class="navbar-brand d-flex align-items-center gap-2"
+                    href="index.html">
+
+                    <img src="/static/img/ChatGPT Image 24 de set. de 2026, 12_18_56.png"
+                        alt="Logotipo Grão Dourado"
+                        class="site-logo">
+
+                    <span>Grão <span>Dourado</span></span>
+                </a>
+
+                <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal"
+                    aria-expanded="false"
+                    aria-label="Abrir menu">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom active"
+                                href="index.html">
+                                Home
+                            </a>
+                        </li>
+
+                       
+
+                        
+
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom"
+                                href="/templates/pedidos.html">
+                                Pedidos
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom"
+                                href="/templates/produtos.html">
+                                Produtos
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom"
+                                href="/templates/localizacao.html">
+                                Localização
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom"
+                                href="/templates/login.html">
+                                Entrar
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <button id="themeToggle"
+                        class="theme-toggle ms-lg-2"
+                        type="button"
+                        aria-label="Alternar tema"
+                        title="Ativar tema escuro">
+
+                        🌙
+                    </button>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- CARROSSEL PRINCIPAL -->
+        <section class="hero-section">
+            <div id="carouselCafe"
+                class="carousel slide carousel-fade"
+                data-bs-ride="carousel"
+                data-bs-interval="3000">
+
+                <div class="carousel-indicators">
+                    <button type="button"
+                        data-bs-target="#carouselCafe"
+                        data-bs-slide-to="0"
+                        class="active"
+                        aria-current="true"
+                        aria-label="Slide 1">
+                    </button>
+
+                    <button type="button"
+                        data-bs-target="#carouselCafe"
+                        data-bs-slide-to="1"
+                        aria-label="Slide 2">
+                    </button>
+
+                    <button type="button"
+                        data-bs-target="#carouselCafe"
+                        data-bs-slide-to="2"
+                        aria-label="Slide 3">
+                    </button>
+                </div>
+
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=85"
+                            alt="Xícara de café sobre uma mesa"
+                            loading="eager">
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1800&q=85"
+                            alt="Interior aconchegante de uma cafeteria"
+                            loading="lazy">
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1800&q=85"
+                            alt="Cappuccino preparado com espuma"
+                            loading="lazy">
+                    </div>
+
+                </div>
+
+                <button class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselCafe"
+                    data-bs-slide="prev"
+                    aria-label="Slide anterior">
+
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+
+                <button class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselCafe"
+                    data-bs-slide="next"
+                    aria-label="Próximo slide">
+
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+
+                <div class="hero-overlay"></div>
+
+                <div class="container hero-content">
+                    <p class="eyebrow">um intervalo para você</p>
+
+                    <h1>
+                        Onde cada gole
+                        <span>acalma o dia.</span>
+                    </h1>
+
+                    <p class="hero-text">
+                        Cafés especiais, doces artesanais e um espaço feito para você desacelerar.
+                    </p>
+
+                    <a href="produtos.html"
+                        class="btn btn-coffee">
+                        Conheça nossos produtos →
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- HISTÓRIA -->
+        <section id="historia" class="about-section">
+            <div class="container">
+
+                <div class="row align-items-center g-5">
+
+                    <div class="col-lg-6">
+                        <div class="about-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=85"
+                                alt="Preparo artesanal do café Grão Dourado"
+                                class="img-fluid rounded-4 shadow"
+                                loading="lazy">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <p class="eyebrow">nossa jornada</p>
+
+                        <h2 class="mb-4">
+                            Uma paixão cultivada
+                            <span>grão por grão.</span>
+                        </h2>
+
+                        <p>
+                            O <strong>Grão Dourado</strong> nasceu do desejo de resgatar
+                            a verdadeira essência do café feito sem pressa.
+                        </p>
+
+                        <p>
+                            Tudo começou com uma pequena torrefação familiar, focada em
+                            encontrar os melhores grãos das serras brasileiras.
+                        </p>
+
+                        <p>
+                            Acreditamos que o café vai muito além da bebida: é um convite
+                            para desacelerar, criar memórias e apreciar pequenos momentos.
+                        </p>
+
+                        <a href="produtos.html"
+                            class="btn btn-order mt-2">
+                            Conheça nossos produtos
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- AMBIENTE DA CAFETERIA -->
+        <section id="ambiente" class="environment-section">
+            <div class="container">
+
+                <div class="section-title text-center mb-5">
+                    <p class="eyebrow">um espaço para desacelerar</p>
+
+                    <h2>
+                        Conheça o nosso
+                        <span>ambiente.</span>
+                    </h2>
+
+                    <p>
+                        Cada detalhe foi pensado para tornar sua experiência mais tranquila,
+                        acolhedora e especial.
+                    </p>
+                </div>
+
+                <div class="row g-4 align-items-center">
+
+                    <div class="col-lg-7">
+                        <div class="environment-gallery">
+
+                            <figure class="environment-photo environment-photo-large">
+                                <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=85"
+                                    alt="Interior aconchegante da cafeteria Grão Dourado"
+                                    loading="lazy">
+                            </figure>
+
+                            <figure class="environment-photo">
+                                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=85"
+                                    alt="Mesa com café em ambiente acolhedor"
+                                    loading="lazy">
+                            </figure>
+
+                            <figure class="environment-photo">
+                                <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=900&q=85"
+                                    alt="Preparo artesanal de café"
+                                    loading="lazy">
+                            </figure>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="environment-content">
+
+                            <p class="eyebrow">mais que uma cafeteria</p>
+
+                            <h3>
+                                Um cantinho feito para você se sentir em casa.
+                            </h3>
+
+                            <p>
+                                No Grão Dourado, cada espaço foi planejado para proporcionar
+                                conforto, tranquilidade e bons momentos.
+                            </p>
+
+                            <p>
+                                Você pode começar o dia com um café especial, trabalhar em
+                                um ambiente calmo, encontrar os amigos ou simplesmente fazer
+                                uma pausa na rotina.
+                            </p>
+
+                            <div class="environment-features">
+
+                                <div class="environment-feature">
+                                    <span class="environment-feature-icon">☕</span>
+
+                                    <div>
+                                        <strong>Cafés preparados na hora</strong>
+                                        <p>
+                                            Grãos selecionados e preparo cuidadoso.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="environment-feature">
+                                    <span class="environment-feature-icon">🌿</span>
+
+                                    <div>
+                                        <strong>Ambiente tranquilo</strong>
+                                        <p>
+                                            Um espaço confortável para relaxar.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="environment-feature">
+                                    <span class="environment-feature-icon">🤎</span>
+
+                                    <div>
+                                        <strong>Momentos especiais</strong>
+                                        <p>
+                                            Perfeito para encontros, estudos e conversas.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <a href="localizacao.html"
+                                class="btn btn-order mt-3">
+                                Conheça nossa localização →
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CHAMADA PARA PEDIDOS -->
+        <section class="order-section">
+            <div class="container order-container">
+
+                <div>
+                    <p class="eyebrow">seu momento começa aqui</p>
+
+                    <h2>
+                        Escolha seu café
+                        <span>do seu jeito.</span>
+                    </h2>
+                </div>
+
+                <a href="pedidos.html"
+                    class="btn btn-coffee">
+                    Fazer um pedido →
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p class="mb-0">
+                © 2026 Grão Dourado — Um café para desacelerar.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/cafe.js"></script>
+
+</body>
+
+</html>
